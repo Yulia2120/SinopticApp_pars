@@ -1,32 +1,31 @@
-﻿
-var result = Parsing(url: "https://sinoptik.ua/");
+﻿using HtmlAgilityPack;
+using System.Collections.Generic;
+using System.Text;
 
-object Parsing(string url)
-{
-    try
-    {
-        using(HttpClientHandler hdl = new HttpClientHandler()) // Обработчик веб- запросов
-        {
-            using(var client = new HttpClient(hdl))
-            {
-                using (HttpResponseMessage response = client.GetAsync(url).Result)
-                {
-                    if(response.IsSuccessStatusCode)  //Возвращает значение, указывающее, завершился ли успешно HTTP-ответ.
-                    {
-                        var html = response.Content.ReadAsStringAsync().Result;  //Сериализация содержимого HTTP в строку в качестве асинхронной операции.
-                        if (!string.IsNullOrEmpty(html))
-                        {
-                            {
-                                HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
-                                doc.LoadHtml(html);
-                            }
-                        }
-                    }
+HtmlWeb web = new HtmlWeb();
+HtmlDocument doc = web.Load("https://sinoptik.ua/");
 
-                }
-            }
-        }
-    }
-    catch (Exception ex)
-    { Console.WriteLine(ex.Message); }
-}
+var title = doc.DocumentNode.SelectNodes("//a[@class= 'sLogo']").First().InnerText;
+var sityname = doc.DocumentNode.SelectNodes("//h1[@class= 'isMain']").First().InnerText;
+var description = doc.DocumentNode.SelectNodes("//div[@id= 'bd1']");
+
+Console.WriteLine(title);
+Console.WriteLine();
+Console.WriteLine(sityname);
+Console.WriteLine();
+//List<string> facts = new List<string>();
+//foreach (HtmlNode li in doc.DocumentNode.SelectNodes("//div[@id='bd1']"))
+//{
+//    facts.Add(li.InnerText);
+//}
+Console.WriteLine();
+//description.ToList().ForEach(x => Console.WriteLine(x.Remove("+deg")));
+description.ToList().ForEach(i => Console.WriteLine(i.InnerText));
+
+Console.WriteLine();
+Console.ReadLine();
+
+
+
+
+
