@@ -36,8 +36,7 @@ namespace Sinoptic.ua
         private void Form1_Load(object sender, EventArgs e)
         {
             var url = "https://sinoptik.ua";
-            //try
-            //{
+          
                 using (HttpClientHandler hdl = new HttpClientHandler())
                 {
                     using (var clnt = new HttpClient(hdl))
@@ -245,12 +244,151 @@ namespace Sinoptic.ua
                                 label32.Text = temp11;
 
 
-                                //    //today
-                                //    label1.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[1]/div[1]/p[1]").First().InnerText;
-                                //    web.DownloadFile("https://sinst.fwdcdn.com/img/weatherImg/b/d000.jpg", "d000.jpg");
-                                //    pictureBox8.Image = Image.FromFile("d000.jpg");
-                                //    pictureBox9.Image = Image.FromFile("spr4.png");
-
+                                //today
+                                label1.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[1]/div[1]/p[1]").First().InnerText;
+                                var node8 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[1]/div[1]/div[1]/img");
+                                string linc8 = "https:" + node8[0].GetAttributeValue("src", "");
+                                Image image8 = GetImageFromPicPath(linc8);
+                                pictureBox8.Image = image8;
+                                pbTerm.Image = Image.FromFile("term1.png");
+                                string temp14 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[1]/div[1]/p[2]").First().InnerText;
+                                lbtemptooday.Text = temp14.Replace("&deg;", "°");
+                                lbinfoDaylight.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[1]/div[2]").First().InnerText;
+                                lbTemp.Text = doc.DocumentNode.SelectNodes(" //*[@id='bd1c']/div[1]/div[1]/div[3]/p[1]").First().InnerText;
+                                lbTooltip.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[1]/div[3]/p[2]/span").First().InnerText;
+                                lbPressure.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[1]/div[3]/p[3]").First().InnerText;
+                                lbHumidity.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[1]/div[3]/p[4]").First().InnerText;
+                                lbWind.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[1]/div[3]/p[5]").First().InnerText;
+                                lbPrecipitation.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[1]/div[3]/p[6]").First().InnerText;
+                                //night
+                                lbnight.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/thead/tr/td[1]").First().InnerText;
+                                lbtime1.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[1]/td[1]").First().InnerText;
+                                lbtime2.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[1]/td[2]").First().InnerText;
+                                var node9 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[2]/td[1]/div/img");
+                                string linc9 = "https:" + node9[0].GetAttributeValue("src", "");
+                                Image image9 = GetImageFromPicPath(linc9);
+                                pbnight1.Image = image9;
+                                var node10 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[2]/td[2]/div/img");
+                                string linc10 = "https:" + node10[0].GetAttributeValue("src", "");
+                                Image image10 = GetImageFromPicPath(linc10);
+                                pbnight2.Image = image10;
+                                string temp15 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[3]/td[1]").First().InnerText;
+                                temp15 = temp15.Replace("&deg;", "°");
+                                lbtempnight1.Text = temp15;
+                                string temp16 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[3]/td[2]").First().InnerText;
+                                temp16 = temp16.Replace("&deg;", "°");
+                                lbtempnight2.Text = temp16;
+                                string temp17 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[4]/td[1]").First().InnerText;
+                                temp17 = temp17.Replace("&deg;", "°");
+                                lbtooltipnight1.Text = temp17;
+                                string temp18 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[4]/td[2]").First().InnerText;
+                                temp18 = temp18.Replace("&deg;", "°");
+                                lbtooltipnight2.Text = temp18;
+                                lbPrnight1.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[5]/td[1]").First().InnerText;
+                                lbPrnight2.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[5]/td[2]").First().InnerText;
+                                lbhumnight1.Text= doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[6]/td[1]").First().InnerText;
+                                lbhumnight2.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[6]/td[2]").First().InnerText;
+                                lbWnight1.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[7]/td[1]/div").First().InnerText;
+                                lbWnight2.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[7]/td[2]/div").First().InnerText;
+                                lbPrenight1.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[8]/td[1]").First().InnerText;
+                                lbPrenight2.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[8]/td[2]").First().InnerText;
+                                //morning
+                                label38.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/thead/tr/td[2]").First().InnerText;
+                                label37.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[1]/td[3]").First().InnerText;
+                                label3.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[1]/td[4]").First().InnerText;
+                                var node11 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[2]/td[3]/div/img");
+                                string linc11 = "https:" + node11[0].GetAttributeValue("src", "");
+                                Image image11 = GetImageFromPicPath(linc11);
+                                pictureBox10.Image = image11;
+                                var node12 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[2]/td[4]/div/img");
+                                string linc12 = "https:" + node12[0].GetAttributeValue("src", "");
+                                Image image12 = GetImageFromPicPath(linc12);
+                                pictureBox9.Image = image12;
+                                string temp19 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[3]/td[3]").First().InnerText;
+                                temp19 = temp19.Replace("&deg;", "°");
+                                label36.Text = temp19;
+                                string temp20 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[3]/td[4]").First().InnerText;
+                                temp20 = temp20.Replace("&deg;", "°");
+                                label35.Text = temp20;
+                                string temp21 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[4]/td[3]").First().InnerText;
+                                temp21 = temp21.Replace("&deg;", "°");
+                                label31.Text = temp21;
+                                string temp22 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[4]/td[4]").First().InnerText;
+                                temp22 = temp22.Replace("&deg;", "°");
+                                label30.Text = temp22;
+                                label26.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[5]/td[3]").First().InnerText;
+                                label25.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[5]/td[4]").First().InnerText;
+                                label21.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[6]/td[3]").First().InnerText;
+                                label20.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[6]/td[4]").First().InnerText;
+                                label16.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[7]/td[3]/div").First().InnerText;
+                                label15.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[7]/td[4]/div").First().InnerText;
+                                label11.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[8]/td[3]").First().InnerText;
+                                label10.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[8]/td[4]").First().InnerText;
+                                label10.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[8]/td[4]").First().InnerText;
+                                //day
+                                label53.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/thead/tr/td[3]").First().InnerText;
+                                label52.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[1]/td[5]").First().InnerText;
+                                label39.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[1]/td[6]").First().InnerText;
+                                var node13 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[2]/td[5]/div/img");
+                                string linc13 = "https:" + node13[0].GetAttributeValue("src", "");
+                                Image image13 = GetImageFromPicPath(linc13);
+                                pictureBox12.Image = image13;
+                                var node14 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[2]/td[6]/div/img");
+                                string linc14 = "https:" + node14[0].GetAttributeValue("src", "");
+                                Image image14 = GetImageFromPicPath(linc14);
+                                pictureBox11.Image = image14;
+                                string temp23 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[3]/td[5]").First().InnerText;
+                                temp23 = temp23.Replace("&deg;", "°");
+                                label51.Text = temp23;
+                                string temp24 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[3]/td[6]").First().InnerText;
+                                temp24 = temp24.Replace("&deg;", "°");
+                                label50.Text = temp24;
+                                string temp25 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[4]/td[5]").First().InnerText;
+                                temp25 = temp25.Replace("&deg;", "°");
+                                label49.Text = temp25;
+                                string temp26 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[4]/td[6]").First().InnerText;
+                                temp26 = temp26.Replace("&deg;", "°");
+                                label48.Text = temp26;
+                                label47.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[5]/td[5]").First().InnerText;
+                                label46.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[5]/td[6]").First().InnerText;
+                                label45.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[6]/td[5]").First().InnerText;
+                                label44.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[6]/td[6]").First().InnerText;
+                                label43.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[7]/td[5]/div").First().InnerText;
+                                label42.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[7]/td[6]/div").First().InnerText;
+                                label41.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[8]/td[5]").First().InnerText;
+                                label40.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[8]/td[6]").First().InnerText;
+                                //evening
+                                label68.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/thead/tr/td[4]").First().InnerText;
+                                label67.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[1]/td[7]").First().InnerText;
+                                label54.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[1]/td[8]").First().InnerText;
+                                var node15 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[2]/td[7]/div/img");
+                                string linc15 = "https:" + node15[0].GetAttributeValue("src", "");
+                                Image image15 = GetImageFromPicPath(linc15);
+                                pictureBox14.Image = image15;
+                                var node16 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[2]/td[8]/div/img");
+                                string linc16 = "https:" + node16[0].GetAttributeValue("src", "");
+                                Image image16 = GetImageFromPicPath(linc16);
+                                pictureBox13.Image = image16;
+                                string temp27 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[3]/td[7]").First().InnerText;
+                                temp27 = temp27.Replace("&deg;", "°");
+                                label66.Text = temp27;
+                                string temp28 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[3]/td[8]").First().InnerText;
+                                temp28 = temp28.Replace("&deg;", "°");
+                                label65.Text = temp28;
+                                string temp29 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[4]/td[7]").First().InnerText;
+                                temp29 = temp29.Replace("&deg;", "°");
+                                label64.Text = temp29;
+                                string temp30 = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[4]/td[8]").First().InnerText;
+                                temp30 = temp30.Replace("&deg;", "°");
+                                label63.Text = temp30;
+                                label62.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[5]/td[7]").First().InnerText;
+                                label61.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[5]/td[8]").First().InnerText;
+                                label60.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[6]/td[7]").First().InnerText;
+                                label59.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[6]/td[8]").First().InnerText;
+                                label58.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[7]/td[7]/div").First().InnerText;
+                                label57.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[7]/td[8]/div").First().InnerText;
+                                label56.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[8]/td[7]").First().InnerText;
+                                label55.Text = doc.DocumentNode.SelectNodes("//*[@id='bd1c']/div[1]/div[2]/table/tbody/tr[8]/td[8]").First().InnerText;
 
                             }
 
@@ -261,14 +399,11 @@ namespace Sinoptic.ua
                         }
                     }
                 }
-            // }
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-
+         
 
         }
+
+       
     }
 }
 

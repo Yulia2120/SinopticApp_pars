@@ -13,14 +13,6 @@ Console.WriteLine(title);
 Console.WriteLine();
 Console.WriteLine(sityname);
 Console.WriteLine();
-//List<string> facts = new List<string>();
-//foreach (HtmlNode li in doc.DocumentNode.SelectNodes("//div[@id='bd1']"))
-//{
-//    facts.Add(li.InnerText);
-//}
-
-
-Console.WriteLine();
 Console.ReadLine();
 
 
