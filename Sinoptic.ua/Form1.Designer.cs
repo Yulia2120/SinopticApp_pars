@@ -81,6 +81,8 @@
             this.lbCount7 = new System.Windows.Forms.Label();
             this.lbName7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbIconTitle)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -96,6 +98,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
             // 
             // lbTitle
@@ -172,7 +176,7 @@
             // lbName1
             // 
             this.lbName1.AutoSize = true;
-            this.lbName1.Location = new System.Drawing.Point(33, 8);
+            this.lbName1.Location = new System.Drawing.Point(31, 8);
             this.lbName1.Name = "lbName1";
             this.lbName1.Size = new System.Drawing.Size(35, 13);
             this.lbName1.TabIndex = 0;
@@ -263,7 +267,7 @@
             // lbName2
             // 
             this.lbName2.AutoSize = true;
-            this.lbName2.Location = new System.Drawing.Point(33, 8);
+            this.lbName2.Location = new System.Drawing.Point(31, 8);
             this.lbName2.Name = "lbName2";
             this.lbName2.Size = new System.Drawing.Size(41, 13);
             this.lbName2.TabIndex = 0;
@@ -334,7 +338,7 @@
             // lbName3
             // 
             this.lbName3.AutoSize = true;
-            this.lbName3.Location = new System.Drawing.Point(33, 8);
+            this.lbName3.Location = new System.Drawing.Point(31, 8);
             this.lbName3.Name = "lbName3";
             this.lbName3.Size = new System.Drawing.Size(41, 13);
             this.lbName3.TabIndex = 0;
@@ -405,7 +409,7 @@
             // lbName4
             // 
             this.lbName4.AutoSize = true;
-            this.lbName4.Location = new System.Drawing.Point(33, 8);
+            this.lbName4.Location = new System.Drawing.Point(31, 8);
             this.lbName4.Name = "lbName4";
             this.lbName4.Size = new System.Drawing.Size(41, 13);
             this.lbName4.TabIndex = 0;
@@ -476,7 +480,7 @@
             // lbName5
             // 
             this.lbName5.AutoSize = true;
-            this.lbName5.Location = new System.Drawing.Point(33, 8);
+            this.lbName5.Location = new System.Drawing.Point(31, 8);
             this.lbName5.Name = "lbName5";
             this.lbName5.Size = new System.Drawing.Size(41, 13);
             this.lbName5.TabIndex = 0;
@@ -547,7 +551,7 @@
             // lbName6
             // 
             this.lbName6.AutoSize = true;
-            this.lbName6.Location = new System.Drawing.Point(33, 8);
+            this.lbName6.Location = new System.Drawing.Point(31, 8);
             this.lbName6.Name = "lbName6";
             this.lbName6.Size = new System.Drawing.Size(41, 13);
             this.lbName6.TabIndex = 0;
@@ -618,7 +622,7 @@
             // lbName7
             // 
             this.lbName7.AutoSize = true;
-            this.lbName7.Location = new System.Drawing.Point(33, 8);
+            this.lbName7.Location = new System.Drawing.Point(31, 8);
             this.lbName7.Name = "lbName7";
             this.lbName7.Size = new System.Drawing.Size(41, 13);
             this.lbName7.TabIndex = 0;
@@ -627,18 +631,38 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(104, 428);
+            this.label1.Location = new System.Drawing.Point(28, 435);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 11;
             this.label1.Text = "label1";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Location = new System.Drawing.Point(67, 490);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(128, 126);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 12;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Location = new System.Drawing.Point(12, 490);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(36, 126);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 13;
+            this.pictureBox9.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1004, 463);
+            this.ClientSize = new System.Drawing.Size(1004, 715);
+            this.Controls.Add(this.pictureBox9);
+            this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
@@ -677,6 +701,8 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -736,6 +762,8 @@
         private System.Windows.Forms.Label lbCount7;
         private System.Windows.Forms.Label lbName7;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox9;
     }
 }
 
